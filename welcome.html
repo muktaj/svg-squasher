@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+<link rel="stylesheet" type="text/css" href="./stylesheets/bootstrap/css/bootstrap.css">
+<link rel="shortcut icon" href="./images/favicon.ico">
+<title>Bug Squasher!</title>
+<script  src="javascripts/jquery-1.11.1.min.js"></script>
+<script src="./stylesheets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascripts/def.js"></script>
+<script type="text/javascript" src="javascripts/bugHandler.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="welcome_header" class="panel-heading">
+			<h1>DeBugger!</h1>
+		</div>
+		<div id="div_welcome" class="panel panel-info">
+			<div id="div_instructions" class="panel panel-info" style="font-size:20px;">
+				<div class="panel-heading" >Game Instructions</div>
+				<div class="panel-body">
+					<ul  style="font-size:18px;">
+					<li>If you are a software engineer you hate bugs and yet take immense pleasure in the process of resolving them. This game is about <i>pin-pointing</i> bugs and <i>executing</i> them.</li><br>
+					<li>Bugs move on the screen from left to right (coding to production environment). Your aim is to squash a bug before it reaches the right side of the screen.</li><br>
+					<li>If you fail to kill the bug before it reaches production site, game crashes.</li><br>
+					<li>Killing smaller bugs give you higher points, obviously. Since, the stupidity index of your bug is usually inversely proportional to the time it takes to resolve it! </li><br>
+					<li>Happy DeBugging!</li><br>
+					</ul>
+				</div>
+			</div>
+			<div id="div_begin">
+				<p class="label label-danger" style="font-size:15px">Select Background</p>
+				<div class="radio">
+				  <label style="font-size:20px">
+				    <input type="radio" name="optionBG" id="optionBGBamboo" value="bamboo" checked>
+				    Bamboo
+				  </label>
+				</div>
+				<div class="radio">
+				  <label style="font-size:20px">
+				    <input type="radio" name="optionBG" id="optionBGLeaf" value="leaf">
+				    Leaf
+				  </label>
+				</div>
+				<div class="radio">
+				  <label style="font-size:20px">
+				    <input type="radio" name="optionBG" id="optionBGStraws" value="straws">
+					Straw
+				  </label>
+				</div>
+
+				<br/><br/>
+				<a href="javascript:window.bugHandler.loadGame();">
+					<img src="./images/bugIcon.gif" width="100" height="132" style="cursor:url(./images/pinYellow.png) ,auto"/>
+				</a>
+					<p class="label label-danger" style="font-size:15px">Pin the bug to begin!</p>
+			</div>
+			<div id="div_highScoreGrid" class="panel panel-info" style="font-size:20px;">
+				<div class="panel-heading">High Scores</div>
+				<table class="table"  id="tbl_highScores" >
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Score</th>
+							<th>Time</th>
+						</tr>
+					</thead>
+					<tbody>
+			                </tbody>
+				</table>
+			</div>
+		</div>
+		<div id="div_game"  class="panel panel-info">
+			<br/>
+			<div id="div_scoreTime">
+				<div id="div_score"  class="well well-sm">
+					<p style="font-size:20px;color:#ffffff;">Score</p>
+					<p class="badge" id="score" style="font-size:20px;color:#428bca;">0</p>
+				</div>
+				<div id="div_bugsKilled" class="well well-sm">
+					<p style="font-size:20px;color:#ffffff;">Bugs Killed</p>
+					<p class="badge" id="bugsKilled" style="font-size:20px;color:#f0ad4e;">0</p>
+				</div>
+				<div id="div_time" class="well well-sm" style="font-size:20px;">
+					<p style="font-size:20px;color:#ffffff;">Time</p>
+					<p class="badge" id="time" style="font-size:20px;color:#d9534f;">0</p>
+				</div>
+			</div>
+
+			<div class="modal fade" id="alert_gameOver"  data-backdrop="static">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+				<h4 class="modal-title" style="text-align:center;">Game Over</h4>
+			      </div>
+				<div class="form-group" id="modal_highScore" style="text-align:center;">
+				    <p  class="alert alert-success">Bugs dread you! Your score is amongst top 10!</p>
+				    <label for="username">Enter your name</label>
+				    <input type="text" class="form-control" id="username" placeholder="Star Debugger!" style="width:70%;margin-left:auto;margin-right:auto;"><br/>
+				    <button id="btn_submit" class="btn btn-success" onclick="window.bugHandler.addToHighScores();">Submit</button>
+   			        </div>
+				<div class="form-group" id="modal_lowScore" style="text-align:center;">
+				    <p  class="alert alert-danger">Sorry, you lost!</p>
+				    <button id="btn_submit" class="btn btn-danger" onclick="window.bugHandler.showGameOrHome();">Go to Home</button>
+   			        </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="panel panel-primary" id="content">
+				<svg id="svgElement" width="100%" height="100%" >
+					<svg id="bugMed" x="0" y="0">
+						<g transform=scale(1.2)>
+							<ellipse cx="13" cy="13" rx="10" ry="9" style="stroke: #996633; fill:#996633;"/> 
+							<circle cx="24" cy="13" r="3" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="8" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="8" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="13" cy="8" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="13" cy="18" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="18" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="18" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<path d="M2,2  A3,5 0 0,1 6,6"  style="stroke:#000000; fill:none;"/>
+							<path d="M2,24  A3,5 0 0,0 6,20"  style="stroke:#000000; fill:none;"/>
+
+							<path d="M18,2  A2,4 0 0,1 21,7"  style="stroke:#000000; fill:none;"/>
+							<path d="M18,24  A2,4 0 0,0 21,19"  style="stroke:#000000; fill:none;"/>
+
+							<path d="M9,0  A3,5 0 0,1 13,4"  style="stroke:#000000; fill:none;"/>
+							<path d="M9,26  A3,5 0 0,0 13,22"  style="stroke:#000000; fill:none;"/>		
+							<animateMotion id="bugMedAnimate" rotate="auto"	 onend="window.bugHandler.endGame('med')"/>		
+						</g>					
+					</svg>
+					<svg id="bugBig" x="0" y="0" currentClicked="false">
+						<g transform=scale(1.8)>
+							<ellipse cx="13" cy="13" rx="10" ry="9" style="stroke: #ff0000; fill: #ff0000;"/> 
+							<circle cx="24" cy="13" r="3" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="8" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="8" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="13" cy="8" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="13" cy="18" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="18" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="18" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<path d="M2,2  A3,5 0 0,1 6,6"  style="stroke:#000000; fill:none;"/>
+							<path d="M2,24  A3,5 0 0,0 6,20"  style="stroke:#000000; fill:none;"/>
+
+							<path d="M18,2  A2,4 0 0,1 21,7"  style="stroke:#000000; fill:none;"/>
+							<path d="M18,24  A2,4 0 0,0 21,19"  style="stroke:#000000; fill:none;"/>
+
+							<path d="M9,0  A3,5 0 0,1 13,4"  style="stroke:#000000; fill:none;"/>
+							<path d="M9,26  A3,5 0 0,0 13,22"  style="stroke:#000000; fill:none;"/>
+							<animateMotion id="bugBigAnimate" rotate="auto"	 onend="window.bugHandler.endGame('big')"/>
+						</g>
+					</svg>
+
+					<svg id="bugSmall" x="0" y="0">
+						<g  transform=scale(0.8)>
+							<ellipse cx="13" cy="13" rx="10" ry="9" style="stroke:yellow; fill: yellow;"/> 
+							<circle cx="24" cy="13" r="3" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="8" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="8" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="13" cy="8" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="13" cy="18" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<circle cx="18" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="18" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+							<path d="M2,2  A3,5 0 0,1 6,6"  style="stroke:#000000; fill:none;"/>
+							<path d="M2,24  A3,5 0 0,0 6,20"  style="stroke:#000000; fill:none;"/>
+
+							<path d="M18,2  A2,4 0 0,1 21,7"  style="stroke:#000000; fill:none;"/>
+							<path d="M18,24  A2,4 0 0,0 21,19"  style="stroke:#000000; fill:none;"/>
+
+							<path d="M9,0  A3,5 0 0,1 13,4"  style="stroke:#000000; fill:none;"/>
+							<path d="M9,26  A3,5 0 0,0 13,22"  style="stroke:#000000; fill:none;"/>	
+							<animateMotion id="bugSmallAnimate" rotate="auto" onend="window.bugHandler.endGame('small')"/>			
+						</g>
+					</svg>
+				</svg>
+			</div>
+		</div>
+<!--		<div id="footer" class="panel-footer">
+			&copy MJ
+		</div>-->
+	</div>
+</body>
+</html>

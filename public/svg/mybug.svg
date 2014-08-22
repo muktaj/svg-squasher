@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg id="bugMed" x="0" y="100">
+				<g>
+					<ellipse id="bugMedBlood" cx="10" cy="100" rx="13" ry="8" style="stroke: #666600; fill: #ff0000;" visibility="hidden"/>
+					<ellipse cx="100" cy="100" rx="10" ry="9" style="stroke: #ff0000; fill: #ff0000;"/> 
+					<circle cx="111" cy="100" r="3" style="stroke: #333333; fill: #000000;"/> 
+
+					<circle cx="95" cy="96" r="1" style="stroke: #333333; fill: #000000;"/> 
+					<circle cx="95" cy="104" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+					<circle cx="100" cy="95" r="1" style="stroke: #333333; fill: #000000;"/> 
+					<circle cx="100" cy="105" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+					<circle cx="105" cy="96" r="1" style="stroke: #333333; fill: #000000;"/> 
+					<circle cx="105" cy="104" r="1" style="stroke: #333333; fill: #000000;"/> 
+
+					<path d="M89,89  A3,5 0 0,1 93,93"  style="stroke:#000000; fill:none;"/>
+					<path d="M89,111  A3,5 0 0,0 93,107"  style="stroke:#000000; fill:none;"/>
+
+					<path d="M105,89  A2,4 0 0,1 108,94"  style="stroke:#000000; fill:none;"/>
+					<path d="M105,111  A2,4 0 0,0 108,106"  style="stroke:#000000; fill:none;"/>
+
+					<path d="M96,87  A3,5 0 0,1 100,91"  style="stroke:#000000; fill:none;"/>
+					<path d="M96,113  A3,5 0 0,0 100,109"  style="stroke:#000000; fill:none;"/>
+				</g>
+				<animate id="bugMedAnimate" attributeName="x" attributeType="XML"
+					     begin="0s" dur="8s"
+					     end="click"
+					     fill="remove" repeatCount="indefinite"/>
+			</svg>
