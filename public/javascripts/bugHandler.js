@@ -17,6 +17,7 @@ window.bugHandler = {
 	bugTimeOut : [],
 	highScores : [],
 
+//Initialize variables before game begins
 	initVariables : function(){
 		window.bugHandler.score = 0;
 		window.bugHandler.currentTime = 0;
@@ -39,6 +40,7 @@ window.bugHandler = {
 
 	},
 
+//Reset animations at the start of new game
 	resetAnimations : function() {
 		$("#bugBigAnimate").attr("path", window.bugHandler.randomizePath());
 		$("#bugMedAnimate").attr("path", window.bugHandler.randomizePath());
@@ -65,6 +67,7 @@ window.bugHandler = {
 		$("#bugSmall").attr("currentClicked","false");
 	},
 
+//Setup game
 	initBugs : function(){
 
 		window.bugHandler.initVariables();
@@ -116,6 +119,7 @@ window.bugHandler = {
 
 	},
 
+//Check if game has ended
 	endGame : function(bugType){
 		if( window.bugHandler.ignoreEndGame < 1 && !window.bugHandler.bugClicked)
 		{
@@ -162,6 +166,7 @@ window.bugHandler = {
 		}
 	},
 
+//Increase score based on the type of bug killed
 	increaseScore : function(type){
 		var points = 0;
 		switch(type) {
@@ -179,22 +184,27 @@ window.bugHandler = {
 		window.bugHandler.setCurrentScore();
 	},
 
+//Returns score
 	getScore : function(){
 		return window.bugHandler.score;
 	},
 
+//sets new score
 	setScore : function(newScore){
 		window.bugHandler.score = newScore;
 	},
 
+//display score on game page
 	setCurrentScore : function(){
 		$("#score").text(window.bugHandler.getScore());
 	},
 
+//display number of bugs killed on game page
 	setBugsKilled : function() {
 		$("#bugsKilled").text(window.bugHandler.bugsKilled);
 	},
 
+//display time elapsed on game page
 	setGameTime : function(){
 		window.bugHandler.resetTimeInterval = setInterval(function() {
 			$("#time").text(window.bugHandler.currentTime++);
@@ -222,6 +232,7 @@ window.bugHandler = {
 		}, 1000);
 	},
 
+//set bug animation based on bug type
 	setBugAnimation : function(animateId, bugType) {
 		switch(bugType) {
 			case "Big":
@@ -237,6 +248,7 @@ window.bugHandler = {
 		$(animateId).attr("path", window.bugHandler.randomizePath());
 	},
 
+//generate random path for animation
 	randomizePath : function() {
 	//Generate y coordinate for entry: range(0,windowHeight)
 		var y1 = Math.floor(Math.random()*(window.bugHandler.contentHeight+1));
@@ -271,12 +283,14 @@ window.bugHandler = {
 		window.bugHandler.initBugs();		
 	},
 
+//Show game or home page
 	showGameOrHome : function(divId){
 		$("#div_welcome").slideToggle(1000);
 		$("#div_game").slideToggle(1000);
 		$("#alert_gameOver").modal('hide');
 	},
 
+//Check if current score is in top n scores
 	isHighScore : function(newScore){
 		if(window.bugHandler.highScores.length < window.def.getHighScoresToStore())
 		{
@@ -306,6 +320,7 @@ window.bugHandler = {
 		window.bugHandler.displayHighScores();
 	},
 
+//display high scores in a table
 	displayHighScores : function(){
 		$("#tbl_highScores tbody").empty();
 		for(var i=0; i<window.bugHandler.highScores.length; ++i)

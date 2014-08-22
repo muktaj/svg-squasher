@@ -23,7 +23,7 @@
 					<li>If you are a software engineer you hate bugs and yet take immense pleasure in the process of resolving them. This game is about <i>pin-pointing</i> bugs and <i>executing</i> them.</li><br>
 					<li>Bugs move on the screen from left to right (coding to production environment). Your aim is to squash a bug before it reaches the right side of the screen.</li><br>
 					<li>If you fail to kill the bug before it reaches production site, game crashes.</li><br>
-					<li>Killing smaller bugs give you higher points, obviously. Since, the stupidity index of your bug is usually inversely proportional to the time it takes to resolve it! </li><br>
+					<li>Killing smaller bugs gives you higher points, obviously. Since, the size (read:stupidity index) of your bug is usually inversely proportional to the time it takes to resolve it! </li><br>
 					<li>Happy DeBugging!</li><br>
 					</ul>
 				</div>
@@ -111,45 +111,25 @@
 				<svg id="svgElement" width="100%" height="100%" >
 					<svg id="bugMed" x="0" y="0">
 						<g transform=scale(1.4)>
-<!--							<ellipse cx="13" cy="13" rx="10" ry="9" style="stroke: #663300; fill:#663300;"/> 
-							<circle cx="24" cy="13" r="3" style="stroke: #333333; fill: #000000;"/> 
 
-							<circle cx="8" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
-							<circle cx="8" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<polygon points="0,10 8,4  23,10   8,16"
+								 style="stroke:#660000; fill:#FF6600;"/>
+							<circle cx="25" cy="10" r="5" style="stroke: #000000; fill: #000000;"/> 
 
-							<circle cx="13" cy="8" r="1" style="stroke: #333333; fill: #000000;"/> 
-							<circle cx="13" cy="18" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="15" cy="10" r="1" style="stroke: #000000; fill: #000000;"/> 
+							<circle cx="8" cy="10" r="2" style="stroke: #000000; fill: #000000;"/> 
 
-							<circle cx="18" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
-							<circle cx="18" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<line x1="29" y1="9" x2="32" y2="7" style="stroke: #333333;"/> 
+							<line x1="29" y1="11" x2="32" y2="13" style="stroke: #333333;"/> 
 
-							<path d="M2,2  A3,5 0 0,1 6,6"  style="stroke:#000000; fill:none;"/>
-							<path d="M2,24  A3,5 0 0,0 6,20"  style="stroke:#000000; fill:none;"/>
-
-							<path d="M18,2  A2,4 0 0,1 21,7"  style="stroke:#000000; fill:none;"/>
-							<path d="M18,24  A2,4 0 0,0 21,19"  style="stroke:#000000; fill:none;"/>
-
-							<path d="M9,0  A3,5 0 0,1 13,4"  style="stroke:#000000; fill:none;"/>
-							<path d="M9,26  A3,5 0 0,0 13,22"  style="stroke:#000000; fill:none;"/>		-->
-
-<polygon points="0,10 8,4  23,10   8,16"
-         style="stroke:#660000; fill:#FF6600;"/>
-<circle cx="25" cy="10" r="5" style="stroke: #000000; fill: #000000;"/> 
-
-<circle cx="15" cy="10" r="1" style="stroke: #000000; fill: #000000;"/> 
-<circle cx="8" cy="10" r="2" style="stroke: #000000; fill: #000000;"/> 
-
-<line x1="29" y1="9" x2="32" y2="7" style="stroke: #333333;"/> 
-<line x1="29" y1="11" x2="32" y2="13" style="stroke: #333333;"/> 
-
-<path d="M17,3  A3,5 0 0,1 19,8"  style="stroke:#000000; fill:none;"/>
-<path d="M17,17  A3,5 0 0,0 19,12"  style="stroke:#000000; fill:none;"/>
+							<path d="M17,3  A3,5 0 0,1 19,8"  style="stroke:#000000; fill:none;"/>
+							<path d="M17,17  A3,5 0 0,0 19,12"  style="stroke:#000000; fill:none;"/>
 							
-<path d="M12,1  A3,5 0 0,1 15,7"  style="stroke:#000000; fill:none;"/>
-<path d="M12,19  A3,5 0 0,0 15,13"  style="stroke:#000000; fill:none;"/>
+							<path d="M12,1  A3,5 0 0,1 15,7"  style="stroke:#000000; fill:none;"/>
+							<path d="M12,19  A3,5 0 0,0 15,13"  style="stroke:#000000; fill:none;"/>
 
-<path d="M8,0  A3,5 0 0,1 10,5"  style="stroke:#000000; fill:none;"/>
-<path d="M8,20  A3,5 0 0,0 10,15"  style="stroke:#000000; fill:none;"/>
+							<path d="M8,0  A3,5 0 0,1 10,5"  style="stroke:#000000; fill:none;"/>
+							<path d="M8,20  A3,5 0 0,0 10,15"  style="stroke:#000000; fill:none;"/>
 							<animateMotion id="bugMedAnimate" rotate="auto"	 onend="window.bugHandler.endGame('med')"/>		
 						</g>					
 					</svg>
@@ -181,44 +161,24 @@
 
 					<svg id="bugSmall" x="0" y="0">
 						<g  transform=scale(0.8)>
-<!--							<ellipse cx="13" cy="13" rx="10" ry="9" style="stroke:#FF6600; fill: #FF6600;"/> 
-							<circle cx="24" cy="13" r="3" style="stroke: #333333; fill: #000000;"/> 
 
-							<circle cx="8" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
-							<circle cx="8" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="24" cy="9" r="4" style="stroke: #666600; fill: #663300;"/> 
 
-							<circle cx="13" cy="8" r="1" style="stroke: #333333; fill: #000000;"/> 
-							<circle cx="13" cy="18" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<circle cx="25" cy="7" r="0.5" style="stroke: #666600; fill: #000000;"/> 
+							<circle cx="25" cy="11" r="0.5" style="stroke: #666600; fill: #000000;"/> 
 
-							<circle cx="18" cy="9" r="1" style="stroke: #333333; fill: #000000;"/> 
-							<circle cx="18" cy="17" r="1" style="stroke: #333333; fill: #000000;"/> 
+							<ellipse cx="10" cy="9" rx="10" ry="4" style="stroke: #666600; fill: #663300;"/> 
+							<line x1="10" y1="5" x2="10" y2="0" style="stroke: #333333;"/> 
+							<line x1="10" y1="13" x2="10" y2="18" style="stroke: #333333;"/> 
 
-							<path d="M2,2  A3,5 0 0,1 6,6"  style="stroke:#000000; fill:none;"/>
-							<path d="M2,24  A3,5 0 0,0 6,20"  style="stroke:#000000; fill:none;"/>
+							<line x1="6" y1="6" x2="4" y2="1" style="stroke: #333333;"/> 
+							<line x1="6" y1="12" x2="4" y2="17" style="stroke: #333333;"/> 
 
-							<path d="M18,2  A2,4 0 0,1 21,7"  style="stroke:#000000; fill:none;"/>
-							<path d="M18,24  A2,4 0 0,0 21,19"  style="stroke:#000000; fill:none;"/>
+							<line x1="14" y1="6" x2="16" y2="1" style="stroke: #333333;"/> 
+							<line x1="14" y1="12" x2="16" y2="17" style="stroke: #333333;"/>
 
-							<path d="M9,0  A3,5 0 0,1 13,4"  style="stroke:#000000; fill:none;"/>
-							<path d="M9,26  A3,5 0 0,0 13,22"  style="stroke:#000000; fill:none;"/>	-->
-
-<circle cx="24" cy="9" r="4" style="stroke: #666600; fill: #663300;"/> 
-
-<circle cx="25" cy="7" r="0.5" style="stroke: #666600; fill: #000000;"/> 
-<circle cx="25" cy="11" r="0.5" style="stroke: #666600; fill: #000000;"/> 
-
-<ellipse cx="10" cy="9" rx="10" ry="4" style="stroke: #666600; fill: #663300;"/> 
-<line x1="10" y1="5" x2="10" y2="0" style="stroke: #333333;"/> 
-<line x1="10" y1="13" x2="10" y2="18" style="stroke: #333333;"/> 
-
-<line x1="6" y1="6" x2="4" y2="1" style="stroke: #333333;"/> 
-<line x1="6" y1="12" x2="4" y2="17" style="stroke: #333333;"/> 
-
-<line x1="14" y1="6" x2="16" y2="1" style="stroke: #333333;"/> 
-<line x1="14" y1="12" x2="16" y2="17" style="stroke: #333333;"/>
-
-<line x1="27" y1="8" x2="29" y2="6" style="stroke: #333333;"/> 
-<line x1="27" y1="10" x2="29" y2="12" style="stroke: #333333;"/> 
+							<line x1="27" y1="8" x2="29" y2="6" style="stroke: #333333;"/> 
+							<line x1="27" y1="10" x2="29" y2="12" style="stroke: #333333;"/> 
 
 							<animateMotion id="bugSmallAnimate" rotate="auto" onend="window.bugHandler.endGame('small')"/>			
 						</g>
